@@ -1,26 +1,22 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import React, { useEffect, useState } from 'react'
+import { Route } from 'react-router-dom'
+import axios from 'axios'
+import Users from './users'
 import Head from './head'
 
 const Home = () => {
-  const [counter, setCounterNew] = useState(0)
-
+  const [users, setUsers] = useState([])
+  useEffect(() => {
+    axios('/api/v1/users').then(({ data }) => setUsers(data))
+  }, [users])
   return (
     <div>
-      <Head title="Hello" />
-      <button type="button" onClick={() => setCounterNew(counter + 1)}>
-        updateCounter
-      </button>
-      <div> Hello World Dashboard {counter} </div>
+      <Head title="Home" />
+      <Route exact path="/users" component={() => <Users users={users} />} />
     </div>
   )
 }
 
 Home.propTypes = {}
 
-const mapStateToProps = () => ({})
-
-const mapDispatchToProps = (dispatch) => bindActionCreators({}, dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default Home

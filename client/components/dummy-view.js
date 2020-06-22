@@ -1,16 +1,14 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import Head from './head'
 
 const Dummy = () => {
   return (
     <div>
       <Head title="Hello" />
-      <div className="flex items-center justify-center h-screen">
-        <div className="bg-indigo-800 text-white font-bold rounded-lg border shadow-lg p-10">
-          This is dummy component
-        </div>
+      <div className="flex justify-center items-center h-screen">
+        <a href="/users" className="bg-black blue opacity-75 hover:bg-blue-900 px-10 py-3 rounded">
+          Get Users
+        </a>
       </div>
     </div>
   )
@@ -18,8 +16,4 @@ const Dummy = () => {
 
 Dummy.propTypes = {}
 
-const mapStateToProps = () => ({})
-
-const mapDispatchToProps = (dispatch) => bindActionCreators({}, dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dummy)
+export default Dummy

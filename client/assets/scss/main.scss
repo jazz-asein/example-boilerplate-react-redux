@@ -4,3 +4,24 @@
 /* purgecss end ignore */
 
 @tailwind utilities;
+
+body {
+  background-size: cover;
+  color: #001334;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  background: url("https://wallpaperaccess.com/full/2094188.jpg") no-repeat fixed;
+}
+.midnight{
+  background: #001334;
+}
+.email {
+  border: #5CE5D3 solid;
+}
+.email:hover {
+  background: #5CE5D3
+}
+.blue {
+  color: #5CE5D3;
+}
